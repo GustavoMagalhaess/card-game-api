@@ -6,7 +6,7 @@ use Illuminate\Contracts\Validation\Rule;
 
 class ValidCards implements Rule
 {
-    private const VALID_CARDS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+    public const VALID_CARDS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
 
     /**
      * Determine if the validation rule passes.

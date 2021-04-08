@@ -41,10 +41,13 @@ class GameController extends Controller
         return $this->json($scores);
     }
 
-    public function generateHand(GameFormRequest $request)
+    public function play(GameFormRequest $request)
     {
-        $generated_hand = $this->service->generateHand($request->all());
+        $player_name = $request->get('name');
+        $player_hand = $request->get('hand');
 
-        //return $this->json($generated_hand);
+        $score = $this->service->play($player_name, $player_hand);
+
+        return $this->json($score);
     }
 }
