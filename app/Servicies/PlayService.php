@@ -2,6 +2,8 @@
 
 namespace App\Servicies;
 
+use App\Models\Players;
+use App\Models\PlayersScores;
 use App\Rules\ValidCards;
 
 class PlayService
@@ -21,19 +23,6 @@ class PlayService
     public function __construct(string $player_name, string $player_hand) {
         $this->player_name = $player_name;
         $this->player_hand = $player_hand;
-    }
-
-    /**
-     * Gest both player and generated hands.
-     *
-     * @return array
-     */
-    public function getHands(): array
-    {
-        return [
-            'player_hand' => $this->player_hand,
-            'generated_hand' => implode(' ', $this->generated_hand)
-        ];
     }
 
     /**
@@ -133,7 +122,35 @@ class PlayService
 
         $this->player_score = [
             'player' => $this->player_name,
-            'score' => ['player' => $player, 'generated' => $generated]
+            'score' => [
+                'player' => $player,
+                'generated' => $generated,
+                'is_winner' => $player > $generated
+            ]
         ];
+    }
+
+    /**
+     * Saves a player and own scores.
+     *
+     * @param $player
+     */
+    public function save($player)
+    {
+        if (!$player) {
+            $player = new Players();
+            $player->name = $this->player_name;
+            $player->save();
+        }
+
+        $score = new PlayersScores();
+        $score->player_id = $player->id;
+        $score->player_hand = $this->player_hand;
+        $score->generated_hand = implode(' ', $this->generated_hand);
+        $score->player_score = $this->player_score['score']['player'];
+        $score->generated_score = $this->player_score['score']['generated'];
+        $score->is_winner = $this->player_score['score']['is_winner'];
+
+        $score->save();
     }
 }

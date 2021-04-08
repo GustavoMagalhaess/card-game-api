@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Servicies;
+
+use App\Models\Players;
+use App\Models\PlayersScores;
 use App\Repositories\GameRepository;
 
 class GameService
 {
     private GameRepository $repository;
 
-    public function __construct(GameRepository $repository) {
+    public function __construct(GameRepository $repository)
+    {
         $this->repository = $repository;
     }
 
@@ -33,10 +37,10 @@ class GameService
      */
     public function play(string $player_name, string $player_hand): array
     {
-        $playService = new PlayService($player_name, $player_hand);
+        $playService  = new PlayService($player_name, $player_hand);
         $player_score = $playService->play();
-
-        dd($playService->getHands());
+        $player = $this->repository->getPlayer($player_name);
+        $playService->save($player);
 
         return $player_score;
     }

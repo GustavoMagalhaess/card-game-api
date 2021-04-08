@@ -19,8 +19,8 @@ class GameRepository
         }])->get();
     }
 
-    public function saveGame()
+    public function getPlayer(string $name)
     {
-        //
+        return Players::where('name' ,'=', $name)->first();
     }
 }

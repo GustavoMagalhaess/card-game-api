@@ -21,6 +21,8 @@ class PlayersScores extends Model
 
     protected $visible = ['player_hand', 'generated_hand', 'player_score', 'generated_score'];
 
+    protected $fillable = ['player_hand', 'generated_hand', 'player_score', 'generated_score', 'is_winner'];
+
     /**
      * Gets the related player.
      *

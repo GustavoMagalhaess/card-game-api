@@ -15,6 +15,8 @@ class Players extends Model
 
     protected $visible = ['name', 'scores'];
 
+    protected $fillable = ['name'];
+
     /**
      * Gets the user's scores.
      *
