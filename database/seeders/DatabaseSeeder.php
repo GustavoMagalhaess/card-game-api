@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\UsersScores;
+use App\Models\Players;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +14,6 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        UsersScores::factory(20)->create();
+        Players::factory(20)->create();
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersHandsTable extends Migration
+class CreatePlayersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateUsersHandsTable extends Migration
      */
     public function up()
     {
-        Schema::create('users_hands', function (Blueprint $table) {
+        Schema::create('players', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_score_id');
-            $table->foreign('user_score_id')->references('id')->on('users_scores');
-            $table->string('user_hand')->nullable(false);
-            $table->string('generated_hand')->nullable(false);
+            $table->string('name', 250)->nullable(false);
             $table->timestamp('created_at')->nullable(false)->useCurrent();
         });
     }
@@ -30,6 +27,6 @@ class CreateUsersHandsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users_hands');
+        Schema::dropIfExists('players');
     }
 }

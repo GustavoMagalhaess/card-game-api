@@ -16,9 +16,9 @@ class GameService
      *
      * @return \Illuminate\Database\Eloquent\Collection
      */
-    public function getWinnersScores()
+    public function getWinners()
     {
-        return $this->repository->getWinnersScores();
+        return $this->repository->getWinners();
     }
 
     /**
@@ -35,6 +35,8 @@ class GameService
     {
         $playService = new PlayService($player_name, $player_hand);
         $player_score = $playService->play();
+
+        dd($playService->getHands());
 
         return $player_score;
     }

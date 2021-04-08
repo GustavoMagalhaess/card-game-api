@@ -39,9 +39,9 @@ class GameController extends Controller
      *
      * @return JsonResponse
      */
-    public function winnersScores(): JsonResponse
+    public function winners(): JsonResponse
     {
-        $scores = $this->service->getWinnersScores();
+        $scores = $this->service->getWinners();
 
         return $this->json($scores);
     }

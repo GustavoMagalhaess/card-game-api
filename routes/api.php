@@ -15,4 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/play', 'GameController@play');
-Route::get('/scores', 'GameController@winnersScores');
+Route::get('/winners', 'GameController@winners');

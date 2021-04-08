@@ -32,7 +32,7 @@ class PlayService
     {
         return [
             'player_hand' => $this->player_hand,
-            'generated_hand' => $this->generated_hand
+            'generated_hand' => implode(' ', $this->generated_hand)
         ];
     }
 
