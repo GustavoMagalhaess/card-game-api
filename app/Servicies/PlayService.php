@@ -121,7 +121,7 @@ class PlayService
         }
 
         $this->player_score = [
-            'player' => $this->player_name,
+            'player' => ucwords($this->player_name),
             'score' => [
                 'player' => $player,
                 'generated' => $generated,
