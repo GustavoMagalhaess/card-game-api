@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', 'GameController@scores');
+Route::post('/generate-hand', 'GameController@generateHand');
+Route::get('/scores', 'GameController@winnersScores');

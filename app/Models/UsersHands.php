@@ -11,9 +11,9 @@ class UsersHands extends Model
 
     protected $table = 'users_hands';
 
-    protected $visible = ['user_hand', 'generated_hand'];
-
     public $timestamps = false;
+
+    public $visible = ['user_hand'];
 
     public function user()
     {

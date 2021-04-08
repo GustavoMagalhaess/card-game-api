@@ -19,6 +19,8 @@ class UsersScores extends Model
         'is_user_winner' => false
     ];
 
+    protected $visible = ['user_name', 'user_score', 'generated_score', 'hands'];
+
     /**
      * Gets the user's hands played.
      *
