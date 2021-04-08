@@ -8,8 +8,13 @@ use Illuminate\Http\JsonResponse;
 
 class GameController extends Controller
 {
-    private $service;
+    private GameService $service;
 
+    /**
+     * GameController constructor.
+     *
+     * @param GameService $service
+     */
     public function __construct(GameService $service) {
         $this->service = $service;
     }
@@ -41,6 +46,15 @@ class GameController extends Controller
         return $this->json($scores);
     }
 
+    /**
+     * Plays the game.
+     *
+     * Generates a new hand to compare with player's hand, then stores the both hands into db.
+     *
+     * @param GameFormRequest $request
+     *
+     * @return JsonResponse
+     */
     public function play(GameFormRequest $request)
     {
         $player_name = $request->get('name');
