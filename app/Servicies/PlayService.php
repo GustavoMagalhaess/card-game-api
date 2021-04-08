@@ -139,7 +139,7 @@ class PlayService
     {
         if (!$player) {
             $player = new Players();
-            $player->name = $this->player_name;
+            $player->name = strtolower($this->player_name);
             $player->save();
         }
 

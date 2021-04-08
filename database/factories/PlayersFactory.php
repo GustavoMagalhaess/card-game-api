@@ -30,6 +30,6 @@ class PlayersFactory extends Factory
      */
     public function definition()
     {
-        return [ 'name' => $this->faker->firstName ];
+        return [ 'name' => strtolower($this->faker->firstName) ];
     }
 }

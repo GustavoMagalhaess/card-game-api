@@ -26,4 +26,24 @@ class Players extends Model
     {
         return $this->hasMany(PlayersScores::class, 'player_id', 'id');
     }
+
+    /**
+     * Sets name filed to lowercase.
+     *
+     * @param $value
+     */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strtolower($value);
+    }
+
+    /**
+     * Get name filed to ucfirst.
+     *
+     * @return string
+     */
+    public function getNameAttribute($value)
+    {
+        return ucwords($value);
+    }
 }
