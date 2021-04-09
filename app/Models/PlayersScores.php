@@ -42,6 +42,6 @@ class PlayersScores extends Model
      */
     public function scopeWinners($query)
     {
-        return $query->where('is_winner', 1);
+        return $query->where('is_winner', 1)->orderBy('player_score', 'DESC');
     }
 }
