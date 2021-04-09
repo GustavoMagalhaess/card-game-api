@@ -46,13 +46,25 @@ class PlayService
      */
     private function scanPlayerHand(): void
     {
-        $cards = explode(' ', $this->player_hand);
-        $length = count($cards);
+        $arr_cards = explode(' ', $this->player_hand);
+        $length = count($arr_cards);
 
         $this->scaned_hand = [
-            'cards' => $cards,
+            'cards' => $this->cardsToUpper($arr_cards),
             'length' => $length
         ];
+    }
+
+    /**
+     * Transform letter cards to uppercase.
+     *
+     * @param array $cards
+     *
+     * @return array
+     */
+    private function cardsToUpper(array $cards): array
+    {
+        return array_map(static fn($card) => strtoupper($card), $cards);
     }
 
     /**
