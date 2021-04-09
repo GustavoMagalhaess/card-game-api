@@ -20,7 +20,9 @@ class ValidSizeCard implements Rule
         $values = explode(' ', $value);
 
         foreach ($values as $card) {
-            if (!empty($card) && !$this->scanSize($card)) {
+            if (!empty($card)
+                && $card !== '10' //Except that
+                && !$this->scanSize($card)) {
                 return false;
             }
         }

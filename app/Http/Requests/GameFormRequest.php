@@ -27,7 +27,7 @@ class GameFormRequest extends FormRequest
     {
         return [
             'name' => 'required|max:250',
-            'hand' => ['required', new ValidCards, new ValidSizeCard]
+            'hand' => ['required', 'max:25', new ValidCards, new ValidSizeCard]
         ];
     }
 }
