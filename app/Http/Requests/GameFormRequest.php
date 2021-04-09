@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use App\Rules\ValidCards;
+use App\Rules\ValidSizeCard;
 use Illuminate\Foundation\Http\FormRequest;
 
 class GameFormRequest extends FormRequest
@@ -26,7 +27,7 @@ class GameFormRequest extends FormRequest
     {
         return [
             'name' => 'required|max:250',
-            'hand' => ['required', new ValidCards]
+            'hand' => ['required', new ValidCards, new ValidSizeCard]
         ];
     }
 }
