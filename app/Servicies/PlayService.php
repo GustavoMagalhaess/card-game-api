@@ -22,7 +22,7 @@ class PlayService
      */
     public function __construct(string $player_name, string $player_hand) {
         $this->player_name = $player_name;
-        $this->player_hand = $player_hand;
+        $this->player_hand = $this->cardsToUpper($player_hand);
     }
 
     /**
@@ -58,11 +58,29 @@ class PlayService
     /**
      * Transform letter cards to uppercase.
      *
+     * @param string|array $cards
+     *
+     * @return string|array
+     */
+    private function cardsToUpper($cards)
+    {
+        if (is_string($cards)) {
+            $cards = explode(' ', $cards);
+            $cards = $this->mapToUpper($cards);
+            return implode(' ', $cards);
+        }
+
+        return $this->mapToUpper($cards);
+    }
+
+    /**
+     * Maps the array and transform to uppercase.
+     *
      * @param array $cards
      *
      * @return array
      */
-    private function cardsToUpper(array $cards): array
+    private function mapToUpper(array $cards): array
     {
         return array_map(static fn($card) => strtoupper($card), $cards);
     }
