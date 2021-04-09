@@ -46,11 +46,11 @@ class PlayService
      */
     private function scanPlayerHand(): void
     {
-        $arr_cards = explode(' ', $this->player_hand);
-        $length = count($arr_cards);
+        $cards = explode(' ', $this->player_hand);
+        $length = count($cards);
 
         $this->scaned_hand = [
-            'cards' => $this->cardsToUpper($arr_cards),
+            'cards' => $this->cardsToUpper($cards),
             'length' => $length
         ];
     }
