@@ -2,8 +2,6 @@
 
 namespace App\Servicies;
 
-use App\Models\Players;
-use App\Models\PlayersScores;
 use App\Repositories\GameRepository;
 
 class GameService
@@ -39,7 +37,7 @@ class GameService
     {
         $playService  = new PlayService($player_name, $player_hand);
         $player_score = $playService->play();
-        $player = $this->repository->getPlayer($player_name);
+        $player = $this->repository->getPlayerbyName($player_name);
         $playService->save($player);
 
         return $player_score;

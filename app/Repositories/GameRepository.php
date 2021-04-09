@@ -16,10 +16,19 @@ class GameRepository
     {
         return Players::with(['scores' => function ($query) {
             $query->winners();
-        }])->get();
+        }])
+            ->latest()
+            ->get();
     }
 
-    public function getPlayer(string $name)
+    /**
+     * Returns the player by name.
+     *
+     * @param string $name
+     *
+     * @return mixed
+     */
+    public function getPlayerbyName(string $name)
     {
         return Players::where('name' ,'=', $name)->first();
     }
