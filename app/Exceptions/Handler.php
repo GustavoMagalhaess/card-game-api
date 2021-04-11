@@ -40,9 +40,11 @@ class Handler extends ExceptionHandler
         });
 
         $this->renderable(function (ValidationException $e) {
-            $errors = $e->errors();
+            foreach($e->errors() as $error) {
+                $listErros[] = $error[0];
+            }
 
-            return response()->json(['errors' => $errors], 500);
+            return response()->json(['errors' => $listErros], 500);
         });
     }
 }
