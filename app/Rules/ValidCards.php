@@ -21,8 +21,7 @@ class ValidCards implements Rule
         $values = explode(' ', $value);
 
         foreach ($values as $card) {
-            if (!empty($card) &&
-                strlen($card) === ValidSizeCard::VALID_SIZE &&
+            if (strlen($card) === ValidSizeCard::VALID_SIZE &&
                 !$this->scanValues(strtoupper($card))) {
                 return false;
             }
