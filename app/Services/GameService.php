@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Servicies;
+namespace App\Services;
 
 use App\Repositories\GameRepository;
 

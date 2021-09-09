@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\GameFormRequest;
-use App\Servicies\GameService;
+use App\Services\GameService;
 use Illuminate\Http\JsonResponse;
 
 class GameController extends Controller

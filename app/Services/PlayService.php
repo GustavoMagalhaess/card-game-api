@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Servicies;
+namespace App\Services;
 
 use App\Models\Players;
 use App\Models\PlayersScores;
